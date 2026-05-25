@@ -63,6 +63,6 @@ function loadtemp() {
 
 function gettime() {
   const now = new Date();
-  timeDoc.innerHTML = now.toLocaleTimeString().substring(0, 4);
+  timeDoc.innerHTML = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
   dateDoc.innerHTML = now.toLocaleDateString();
 }
