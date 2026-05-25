@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +7,124 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #0d0d14;
+  color: #e8e8f0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
+}
+
+/* ── Dashboard grid ────────────────────────────────── */
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 960px;
+  align-items: start;
+}
+
+/* ── Left panel ────────────────────────────────────── */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Time + date card */
+.time-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(100, 130, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+#time {
+  font-size: 5.5rem;
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1;
+  background: linear-gradient(135deg, #6382ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.4rem;
+}
+
+#date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #7777aa;
+  letter-spacing: 0.06em;
+}
+
+/* Weather cards */
+.weather-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(100, 130, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition:
+    border-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.stat-icon {
+  font-size: 1.75rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e8e8f0;
+  letter-spacing: -0.5px;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #6060a0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── Right panel — photo ───────────────────────────── */
+.photo-panel {
+  background: #1a1a2e;
+  border: 1px solid rgba(100, 130, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.photo-label {
+  padding: 0.65rem 1rem;
+  font-size: 0.75rem;
+  color: #6060a0;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-align: center;
+  border-top: 1px solid rgba(100, 130, 255, 0.1);
 }
