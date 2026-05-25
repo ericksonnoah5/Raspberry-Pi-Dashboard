@@ -2,17 +2,32 @@ var tempDoc = document.getElementById("temp");
 var windDoc = document.getElementById("wind");
 var dateDoc = document.getElementById("date");
 var timeDoc = document.getElementById("time");
+var imgDoc = document.getElementById("img");
 
 var time;
 var tempC;
 var windspeed;
 var date;
+var count = 0;
 
 onStart();
 setInterval(() => {
   loadtemp();
   gettime();
-}, 6000);
+
+  count += 1;
+  if (count % 3 == 0) {
+    imgDoc.src = "./photos/img.JPG";
+  } else if (count % 3 == 1) {
+    imgDoc.src = "./photos/img2.jpeg";
+  } else {
+    imgDoc.src = "./photos/img3.PNG";
+  }
+}, 60000);
+
+setInterval(() => {
+  gettime();
+}, 1000);
 
 function onStart() {
   loadtemp();
@@ -45,26 +60,9 @@ function loadtemp() {
       console.error("Fetch error:", error);
     });
 }
+
 function gettime() {
-  fetch("https://timeapi.io/api/time/current/zone?timeZone=America/Chicago")
-    .then((response) => {
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.json();
-    })
-    .then((data) => {
-      date = data.date.substring(0, 10);
-      time = data.time;
-      var hourNum = parseInt(time.substring(0, 2));
-      dateDoc.innerHTML = date;
-      if (hourNum === 0) {
-        timeDoc.innerHTML = "12" + time.substring(2, 5);
-      } else if (hourNum > 12) {
-        timeDoc.innerHTML = (hourNum - 12) + time.substring(2, 5);
-      } else {
-        timeDoc.innerHTML = hourNum + time.substring(2, 5);
-      }
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
+  const now = new Date();
+  timeDoc.innerHTML = now.toLocaleTimeString().substring(0, 4);
+  dateDoc.innerHTML = now.toLocaleDateString();
 }
