@@ -101,9 +101,17 @@ function renderForecast(daily) {
 
     html +=
       '<div class="forecast-day">' +
-      '<span class="forecast-emoji">' + emoji + "</span>" +
-      '<span class="forecast-name">' + dayName + "</span>" +
-      '<span class="forecast-temps">' + hi + "° <span class='lo'>" + lo + "°</span></span>" +
+      '<span class="forecast-emoji">' +
+      emoji +
+      "</span>" +
+      '<span class="forecast-name">' +
+      dayName +
+      "</span>" +
+      '<span class="forecast-temps">' +
+      hi +
+      "° <span class='lo'>" +
+      lo +
+      "°</span></span>" +
       "</div>";
   }
 
